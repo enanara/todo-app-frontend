@@ -11,7 +11,7 @@ class Header extends React.Component {
                     </div>
                 </h3>
                 <div className="col-4">
-                    <date>Thursday </date>
+                    <span>Thursday </span>
                     <span className="weather">
                         9°C 
                     </span>
