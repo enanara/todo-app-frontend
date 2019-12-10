@@ -22,6 +22,16 @@ class ToDo extends React.Component {
                         </button>
                     </div>
                 </div>
+                <div className="row">
+                    <div className="col-12 d-none d-md-block" >
+                        <p>You have <span>3</span> tasks to complete.</p>
+                    </div>
+                    <div className="col-8">
+                        Do homework for week 6.
+                    </div>
+                    
+
+                </div>
             </div>
         );
     }
