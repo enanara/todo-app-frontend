@@ -7,12 +7,16 @@ class AddTask extends React.Component {
     };
 
     updateTaskInput = (event) => {
-        console.log(event.target.value);
         this.setState({
             taskDescription: event.target.value
         });
+    };
 
-    }
+    updateDate = ( event ) => {
+        this.setState ({
+            dueDate: event.target.value
+        });
+    };
 
 
     render () {
@@ -20,11 +24,29 @@ class AddTask extends React.Component {
             <div className="row">
                 <div className="col-10">
                     <div className="row">
-                        <div className="col-12 col-md-7">
-                            <input placeholder="Enter task..." onChange={this.updateTaskInput} value={this.state.taskDescription} type="text" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+                        <div className="col-12 col-md-6">
+                            <input 
+                            placeholder="Enter task..." 
+                            onChange={this.updateTaskInput} 
+                            value={this.state.taskDescription}
+                            type="text" 
+                            className="form-control" 
+                            aria-label="Sizing example input" 
+                            aria-describedby="inputGroup-sizing-sm" />
                         </div>
-                        <div className="col-12 col-md-5">
-                            <input placeholder="Due date" type="date" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" />
+                        <div className="col-6 col-md-3">
+                            <span>
+                                Due Date: 
+                            </span>
+                        </div>
+                        <div className="col-6 col-md-3">
+                            <input 
+                            type="date" 
+                            onChange={this.updateDate}
+                            value={this.state.dueDate}
+                            className="form-control" 
+                            aria-label="Sizing example input" 
+                            aria-describedby="inputGroup-sizing-sm" />
                         </div>
                     </div>
                 </div>
