@@ -107,6 +107,17 @@ class ToDo extends React.Component {
         });
     };
 
+    deleteTask = (taskNumber) => {
+        const filteredTasks = this.state.tasks.filter(
+            task => {
+                return task.taskNumber !== taskNumber;
+            }
+        );
+        this.setState({
+            tasks: filteredTasks
+        });
+    };
+
     render () {
         
         const tasksToComplete = this.state.tasks.filter(task => {
@@ -135,6 +146,7 @@ class ToDo extends React.Component {
                     <div className="col-12">
                         {tasksToComplete.map((task) => {
                             return <Tasks 
+                            deleteTaskFunc={this.deleteTask}
                             key={task.taskNumber}
                             taskNumber = {task.taskNumber}
                             taskDescription={task.taskDescription}
@@ -151,6 +163,7 @@ class ToDo extends React.Component {
                     <div className="col-12">
                         {completeTasks.map((task) => {
                             return <Tasks 
+                            deleteTaskFunc={this.deleteTask}
                             key={task.taskNumber}
                             taskNumber = {task.taskNumber}
                             taskDescription={task.taskDescription}

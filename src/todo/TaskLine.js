@@ -1,7 +1,13 @@
 import React from "react";
+import { thisExpression } from "@babel/types";
 
 
 class Tasks extends React.Component {
+
+    deleteTask = () => {
+        this.props.deleteTaskFunc(this.props.taskNumber)
+    };
+
     render () {
         return (
             <div className="row">
@@ -9,15 +15,29 @@ class Tasks extends React.Component {
                     <p>{this.props.taskDescription}</p>                   
                 </div>
                 <div className="col-4 col-md-2">
-                    <button type="button" className="btn btn-outline-success btn-sm" data-toggle="button" aria-pressed="false" autoComplete="off">
+                    {this.props.complete === false? 
+                        <button type="button" className="btn btn-outline-success btn-sm" data-toggle="button" aria-pressed="false" autoComplete="off">
                         Done
-                    </button>
+                        </button> : 
+                        <button type="button" className="btn btn-outline-success btn-sm" data-toggle="button" aria-pressed="false" autoComplete="off">
+                        Undo
+                        </button>
+                    }
+                    
                 </div>
                 <div className="col-4 col-md-2">
-                    <button type="button" className="btn btn-outline-secondary btn-sm">Edit</button>
+                    <button 
+                    type="button" 
+                    className="btn btn-outline-secondary btn-sm">
+                        Edit
+                    </button>
                 </div>  
                 <div className="col-4 col-md-2">
-                    <button type="button" className="btn btn-outline-danger btn-sm">Delete
+                    <button 
+                    onClick={this.deleteTask}
+                    type="button" 
+                    className="btn btn-outline-danger btn-sm">
+                        Delete
                     </button>
                 </div>
             </div>
