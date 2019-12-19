@@ -18,6 +18,12 @@ class AddTask extends React.Component {
         });
     };
 
+    addTask = () => {
+        this.props.addNewTaskFunc(
+            this.state.taskDescription,
+            this.state.dueDate
+            )
+    };
 
     render () {
         return (
@@ -51,7 +57,9 @@ class AddTask extends React.Component {
                     </div>
                 </div>
                 <div className="col-2">
-                    <button type="button" className="btn btn-light">
+                    <button 
+                        onClick={this.addTask}
+                        type="button" className="btn btn-light">
                         + Add
                     </button>
                 </div>
