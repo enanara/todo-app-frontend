@@ -1,12 +1,14 @@
 import React from "react";
-import { thisExpression } from "@babel/types";
-
 
 class Tasks extends React.Component {
 
     deleteTask = () => {
         this.props.deleteTaskFunc(this.props.taskNumber)
     };
+    toggleTaskStatus = () =>{
+        console.log(this.props);
+        this.props.toggleTaskStatusFunc(this.props.taskNumber);
+    }
 
     render () {
         return (
@@ -16,10 +18,22 @@ class Tasks extends React.Component {
                 </div>
                 <div className="col-4 col-md-2">
                     {this.props.complete === false? 
-                        <button type="button" className="btn btn-outline-success btn-sm" data-toggle="button" aria-pressed="false" autoComplete="off">
+                        <button 
+                        onClick={this.toggleTaskStatus}
+                        type="button" 
+                        className="btn btn-outline-success btn-sm" 
+                        data-toggle="button" 
+                        aria-pressed="false" 
+                        autoComplete="off">
                         Done
                         </button> : 
-                        <button type="button" className="btn btn-outline-success btn-sm" data-toggle="button" aria-pressed="false" autoComplete="off">
+                        <button 
+                        onClick={this.toggleTaskStatus}
+                        type="button" 
+                        className="btn btn-outline-success btn-sm" 
+                        data-toggle="button" 
+                        aria-pressed="false" 
+                        autoComplete="off">
                         Undo
                         </button>
                     }
